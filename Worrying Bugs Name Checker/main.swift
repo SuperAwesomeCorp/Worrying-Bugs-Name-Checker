@@ -1,3 +1,4 @@
+#!/usr/bin/swift
 //
 //  main.swift
 //  Worrying Bugs Name Checker
