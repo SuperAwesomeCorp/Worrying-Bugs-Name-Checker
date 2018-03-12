@@ -104,16 +104,21 @@ if !internetOn() {
 }
 
 if let feedData = getFeedData() {
-    var anyUsed = false
-    for argument in CommandLine.arguments {
-        let used = checkTitle(string: argument, feedData: feedData)
-        if used {
-            anyUsed = true
-            print("\(argument) has already been used")
+    print("What is title?")
+    let userTitle = readLine()
+    print("loading...")
+        if let arguments = userTitle?.split(separator: " ") {
+        var anyUsed = false
+        for argument in arguments {
+            let used = checkTitle(string: String(argument), feedData: feedData)
+            if used {
+                anyUsed = true
+                print("\(argument) has already been used")
+            }
         }
-    }
-    if !anyUsed {
-        print("All clear")
+        if !anyUsed {
+            print("All clear")
+        }
     }
 }
 
